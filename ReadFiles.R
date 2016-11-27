@@ -7,8 +7,6 @@ mydata2 = read.csv("2016-09.csv")
 mydata3 = read.csv("2016-10.csv")
 
 
-# Merge all files
-#myfulldata = merge(mydata1,mydata2)
 
 #intall and Load library
 install.packages("ggplot2")
@@ -66,23 +64,14 @@ plot(p31,col="green",density=10,angle=135,add=TRUE)
 # plot Estaciones
 
 counts <- table(mydata1$Ciclo_Estacion_Retiro)
-barplot(counts, main="Car Distribution", 
-        xlab="Number of Gears")
+barplot(counts, main="Estaciones", 
+        xlab="Numero Estacione")
 
 
 
-# read file modified with Excel
+# read modified files with Excel/Python
 mydataM = read.csv("Modified2016-08.csv")
 mydataM$Hora_Retiro <- strptime(mydataM$Hora_Retiro, format="%H:%M:%S")
 mydataM$hoursR <-  as.numeric(format(mydataM$Hora_Retiro, format="%H"))
 hist(mydataM$hoursR)
 
-
-#old
-ggplot(
-  data=mydata1,
-  aes(x=Hora_Retiro))+
-  geom_bar()+
-  ggtitle("Test")+
-  xlab("gggg")+
-  ylab("jjj")
